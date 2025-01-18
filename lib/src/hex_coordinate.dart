@@ -224,24 +224,41 @@ class CubeHexCoordinate extends HexCoordinate {
     return CubeHexCoordinate(c.q - q, c.r - r);
   }
 
-  int rotationTicks() {
-    if (q >= 0 && r < 0 && s > 0) {
+  int rotationTicksTowardsCoordinate(CubeHexCoordinate coordinate) {
+    final a = this;
+    final b = coordinate;
+    final n = a.distanceTo(b);
+    if (n == 0) {
+      return -1;
+    }
+    final (q, r, s) = CubeHexCoordinate.lerp(a, b, 1.0 / n);
+    if (CubeHexCoordinate.isEdge(q, r, s)) {
+      return -1;
+    }
+    final rounded = CubeHexCoordinate.round(q, r, s);
+    final v = vectorToCoordinate(rounded);
+    return v._rotationTicks();
+  }
+
+  int _rotationTicks() {
+    assert(-1 <= q && q <= 1);
+    assert(-1 <= r && r <= 1);
+    assert(-1 <= s && s <= 1);
+    if (q == 0 && r == -1) {
       return 0;
-    } else if (q > 0 && r < 0 && s >= 0) {
+    } else if (q == 1 && r == -1) {
       return 1;
-    } else if (q > 0 && r >= 0 && s < 0) {
+    } else if (q == 1 && r == 0) {
       return 2;
-    } else if (q >= 0 && r > 0 && s < 0) {
+    } else if (q == 0 && r == 1) {
       return 3;
-    } else if (q < 0 && r > 0 && s >= 0) {
+    } else if (q == -1 && r == 1) {
       return 4;
-    } else if (q < 0 && r >= 0 && s > 0) {
+    } else if (q == -1 && r == 0) {
       return 5;
-    } else if (q == 0 && r == 0 && s == 0) {
-      return 0;
     }
     assert(false);
-    return 0;
+    return -1;
   }
 
   CubeHexCoordinate rotateByOneSixthTicks(int ticks) {
