@@ -1,12 +1,11 @@
-name: hex_grid
-description: A starting point for Dart libraries or applications.
+name: hex_coordinate
+description: Coordinate system for hexagonal grids.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/nearocodes/hex_grid
 
 environment:
   sdk: ^3.6.0
 
-# Add regular dependencies here.
 dependencies:
   meta: ^1.15.0
 

@@ -1,4 +1,4 @@
-import 'package:hex_grid/hex_grid.dart';
+import 'package:hex_coordinate/hex_coordinate.dart';
 import 'package:test/test.dart';
 
 void main() {
