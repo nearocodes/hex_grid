@@ -1,6 +1,6 @@
 name: hex_coordinate
 description: Coordinate system for hexagonal grids.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/nearocodes/hex_grid
 
 environment:

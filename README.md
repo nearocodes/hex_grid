@@ -13,7 +13,7 @@ To use this package, add it as a dependency in your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  hex_grid: ^1.0.0
+  hex_coordinate: ^1.0.0
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ dependencies:
 Import the package in your Dart file:
 
 ```dart
-import 'package:hex_grid/hex_grid.dart';
+import 'package:hex_coordinate/hex_coordinate.dart';
 ```                     
 Then, you can create hexagonal grid points and perform various operations:
 
